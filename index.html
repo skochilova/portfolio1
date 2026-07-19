@@ -1,0 +1,1433 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Портфолио AI-навыков Иванова Андрея Юрьевича"
+  />
+
+  <title>Портфолио AI-навыков — Иванов Андрей Юрьевич</title>
+
+  <style>
+    :root {
+      --bg-primary: #07111f;
+      --bg-secondary: #0b1728;
+      --card-bg: rgba(17, 32, 53, 0.72);
+      --card-bg-hover: rgba(24, 46, 75, 0.92);
+
+      --text-primary: #f5f7ff;
+      --text-secondary: #aab8ce;
+      --text-muted: #7f90aa;
+
+      --accent-blue: #4f8cff;
+      --accent-cyan: #39d7ff;
+      --accent-purple: #9b6cff;
+      --accent-green: #4de3a4;
+
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(79, 140, 255, 0.35);
+
+      --shadow:
+        0 24px 70px rgba(0, 0, 0, 0.35);
+
+      --container-width: 1180px;
+      --radius-large: 28px;
+      --radius-medium: 20px;
+      --radius-small: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--text-primary);
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(79, 140, 255, 0.17),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(155, 108, 255, 0.14),
+          transparent 26%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(57, 215, 255, 0.1),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          var(--bg-primary),
+          var(--bg-secondary)
+        );
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 44px 44px;
+      mask-image:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.9),
+          transparent 90%
+        );
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: min(
+        calc(100% - 40px),
+        var(--container-width)
+      );
+
+      margin: 0 auto;
+      padding: 34px 0 72px;
+    }
+
+    /* Верхняя навигация */
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      margin-bottom: 72px;
+      padding: 14px 18px;
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      background: rgba(10, 22, 38, 0.58);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      position: relative;
+
+      width: 35px;
+      height: 35px;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-purple)
+        );
+
+      box-shadow:
+        0 0 28px rgba(79, 140, 255, 0.42);
+    }
+
+    .brand-mark::after {
+      content: "AI";
+
+      position: absolute;
+      inset: 0;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 12px;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .topbar-link {
+      padding: 10px 17px;
+
+      border: 1px solid var(--border-accent);
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+      color: #dce8ff;
+
+      background: rgba(79, 140, 255, 0.08);
+
+      transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .topbar-link:hover {
+      transform: translateY(-2px);
+
+      border-color: rgba(57, 215, 255, 0.65);
+      background: rgba(57, 215, 255, 0.12);
+    }
+
+    /* Главный экран */
+
+    .hero {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+      align-items: center;
+      gap: 58px;
+
+      min-height: 480px;
+      margin-bottom: 94px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 23px;
+      padding: 9px 14px;
+
+      border: 1px solid rgba(77, 227, 164, 0.25);
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #bdf9df;
+      text-transform: uppercase;
+
+      background: rgba(77, 227, 164, 0.08);
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+      background: var(--accent-green);
+
+      box-shadow:
+        0 0 0 5px rgba(77, 227, 164, 0.09),
+        0 0 18px rgba(77, 227, 164, 0.8);
+
+      animation: pulse 2.2s infinite;
+    }
+
+    .hero-title {
+      max-width: 850px;
+      margin-bottom: 22px;
+
+      font-size: clamp(52px, 8vw, 104px);
+      line-height: 0.93;
+      letter-spacing: -0.065em;
+    }
+
+    .hero-title-gradient {
+      display: block;
+
+      color: transparent;
+
+      background:
+        linear-gradient(
+          105deg,
+          #ffffff 3%,
+          #a6d7ff 34%,
+          #9b8cff 65%,
+          #4de3d2 100%
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      text-shadow:
+        0 15px 55px rgba(79, 140, 255, 0.14);
+    }
+
+    .hero-title-outline {
+      display: block;
+
+      color: rgba(255, 255, 255, 0.025);
+      -webkit-text-stroke:
+        1px rgba(255, 255, 255, 0.34);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.015)
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-name {
+      margin-bottom: 20px;
+
+      font-size: clamp(21px, 3vw, 31px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+    }
+
+    .hero-description {
+      max-width: 680px;
+
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    .hero-description strong {
+      color: #ffffff;
+    }
+
+    /* Декоративная AI-сфера */
+
+    .hero-visual {
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      min-height: 390px;
+    }
+
+    .orb {
+      position: relative;
+
+      width: min(330px, 80vw);
+      aspect-ratio: 1;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(255, 255, 255, 0.16),
+          transparent 17%
+        ),
+        radial-gradient(
+          circle,
+          rgba(79, 140, 255, 0.25),
+          rgba(155, 108, 255, 0.08) 44%,
+          rgba(7, 17, 31, 0.1) 68%
+        );
+
+      box-shadow:
+        inset 0 0 70px rgba(79, 140, 255, 0.16),
+        0 0 90px rgba(79, 140, 255, 0.18);
+
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .orb::before,
+    .orb::after {
+      content: "";
+      position: absolute;
+
+      border: 1px solid rgba(57, 215, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    .orb::before {
+      inset: 30px;
+
+      animation: rotate 18s linear infinite;
+      border-top-color: var(--accent-cyan);
+      border-bottom-color: var(--accent-purple);
+    }
+
+    .orb::after {
+      inset: 68px;
+
+      animation: rotate-reverse 12s linear infinite;
+      border-left-color: var(--accent-blue);
+      border-right-color: var(--accent-green);
+    }
+
+    .orb-center {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      place-items: center;
+
+      width: 130px;
+      height: 130px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 38px;
+
+      font-size: 43px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.18),
+          rgba(255, 255, 255, 0.03)
+        );
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 25px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .orb-center span {
+      color: transparent;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .floating-tag {
+      position: absolute;
+
+      padding: 9px 13px;
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      font-size: 12px;
+      font-weight: 700;
+      color: #dce8fa;
+
+      background: rgba(10, 22, 38, 0.72);
+      backdrop-filter: blur(12px);
+
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .tag-one {
+      top: 10%;
+      right: -2%;
+    }
+
+    .tag-two {
+      bottom: 14%;
+      left: -6%;
+    }
+
+    .tag-three {
+      right: -8%;
+      bottom: 25%;
+    }
+
+    /* Общие секции */
+
+    .section {
+      margin-bottom: 88px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+
+      margin-bottom: 34px;
+    }
+
+    .section-number {
+      display: grid;
+      place-items: center;
+
+      width: 52px;
+      height: 52px;
+
+      border: 1px solid rgba(79, 140, 255, 0.32);
+      border-radius: 16px;
+
+      font-size: 14px;
+      font-weight: 800;
+      color: #bcd2ff;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(79, 140, 255, 0.16),
+          rgba(155, 108, 255, 0.07)
+        );
+    }
+
+    .section-kicker {
+      margin-bottom: 6px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: clamp(29px, 5vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+    }
+
+    /* Карточки навыков */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 285px;
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.065),
+          rgba(255, 255, 255, 0.018)
+        ),
+        var(--card-bg);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.18);
+
+      transition:
+        transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background-color 0.4s ease;
+    }
+
+    .skill-card::before {
+      content: "";
+
+      position: absolute;
+      top: -70px;
+      right: -70px;
+
+      width: 170px;
+      height: 170px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(79, 140, 255, 0.22),
+          transparent 68%
+        );
+
+      opacity: 0;
+
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+
+      border-color: rgba(79, 140, 255, 0.48);
+
+      background-color: var(--card-bg-hover);
+
+      box-shadow:
+        0 26px 65px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(79, 140, 255, 0.09);
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    .skill-icon {
+      display: grid;
+      place-items: center;
+
+      width: 52px;
+      height: 52px;
+      margin-bottom: 32px;
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+
+      font-size: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(79, 140, 255, 0.2),
+          rgba(155, 108, 255, 0.1)
+        );
+    }
+
+    .skill-label {
+      margin-bottom: 12px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+    }
+
+    .skill-title {
+      margin-bottom: 13px;
+
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    .skill-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* Кейс */
+
+    .case-study {
+      position: relative;
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 44px;
+
+      padding: clamp(28px, 5vw, 54px);
+
+      border: 1px solid rgba(77, 227, 164, 0.25);
+      border-radius: var(--radius-large);
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(77, 227, 164, 0.11),
+          rgba(79, 140, 255, 0.09) 50%,
+          rgba(155, 108, 255, 0.08)
+        ),
+        rgba(10, 22, 38, 0.76);
+
+      box-shadow: var(--shadow);
+    }
+
+    .case-study::after {
+      content: "";
+
+      position: absolute;
+      top: -120px;
+      right: -100px;
+
+      width: 370px;
+      height: 370px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(77, 227, 164, 0.13),
+          transparent 68%
+        );
+    }
+
+    .case-meta {
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 22px;
+      padding: 9px 13px;
+
+      border: 1px solid rgba(77, 227, 164, 0.3);
+      border-radius: 999px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #bff7df;
+      text-transform: uppercase;
+
+      background: rgba(77, 227, 164, 0.09);
+    }
+
+    .case-title {
+      max-width: 420px;
+
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+    }
+
+    .case-content {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-content > p {
+      margin-bottom: 26px;
+
+      font-size: clamp(17px, 2.5vw, 21px);
+      line-height: 1.7;
+      color: #dce5f2;
+    }
+
+    .case-points {
+      display: grid;
+      gap: 13px;
+    }
+
+    .case-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+
+      padding: 15px 16px;
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .case-point-mark {
+      flex: 0 0 auto;
+
+      display: grid;
+      place-items: center;
+
+      width: 24px;
+      height: 24px;
+
+      border-radius: 8px;
+
+      font-size: 13px;
+      font-weight: 900;
+      color: #07111f;
+
+      background: var(--accent-green);
+    }
+
+    /* Инструменты */
+
+    .tools-panel {
+      padding: clamp(25px, 4vw, 40px);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.055),
+          rgba(255, 255, 255, 0.015)
+        ),
+        rgba(10, 22, 38, 0.6);
+
+      backdrop-filter: blur(16px);
+    }
+
+    .tools-intro {
+      max-width: 670px;
+      margin-bottom: 29px;
+
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tool-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 12px 16px;
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 700;
+      color: #e9f1ff;
+
+      background: rgba(255, 255, 255, 0.045);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+    }
+
+    .tool-tag::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+
+      box-shadow:
+        0 0 12px rgba(57, 215, 255, 0.7);
+    }
+
+    .tool-tag:hover {
+      transform: translateY(-3px);
+
+      border-color: rgba(57, 215, 255, 0.4);
+      background: rgba(57, 215, 255, 0.08);
+    }
+
+    /* Подвал */
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      padding-top: 30px;
+
+      border-top: 1px solid var(--border);
+
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-accent {
+      font-weight: 700;
+      color: #d7e3f5;
+    }
+
+    /* Анимация появления */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(0.7);
+        opacity: 0.65;
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-13px);
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes rotate-reverse {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* Планшеты */
+
+    @media (max-width: 950px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+
+        margin-bottom: 76px;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skill-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .case-study {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* Мобильные устройства */
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: min(calc(100% - 24px), var(--container-width));
+        padding-top: 16px;
+      }
+
+      .topbar {
+        margin-bottom: 52px;
+        padding: 11px 12px;
+      }
+
+      .brand {
+        font-size: 11px;
+      }
+
+      .brand-mark {
+        width: 31px;
+        height: 31px;
+      }
+
+      .topbar-link {
+        padding: 8px 11px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: auto;
+        margin-bottom: 66px;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+      }
+
+      .hero-title {
+        font-size: clamp(48px, 17vw, 72px);
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+      }
+
+      .orb {
+        width: 270px;
+      }
+
+      .orb-center {
+        width: 105px;
+        height: 105px;
+        border-radius: 29px;
+        font-size: 35px;
+      }
+
+      .floating-tag {
+        font-size: 10px;
+      }
+
+      .tag-one {
+        right: 0;
+      }
+
+      .tag-two {
+        left: 0;
+      }
+
+      .tag-three {
+        right: 0;
+      }
+
+      .section {
+        margin-bottom: 64px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .section-number {
+        width: 44px;
+        height: 44px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-card,
+      .skill-card:last-child {
+        grid-column: auto;
+        min-height: auto;
+      }
+
+      .case-study {
+        padding: 27px 20px;
+        border-radius: 22px;
+      }
+
+      .tools-panel {
+        padding: 25px 18px;
+        border-radius: 22px;
+      }
+
+      .tool-tag {
+        padding: 10px 13px;
+        font-size: 13px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Уменьшение анимаций по настройкам пользователя */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark"></span>
+        <span>AI Portfolio</span>
+      </a>
+
+      <a class="topbar-link" href="#skills">
+        Смотреть навыки
+      </a>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Практическое применение искусственного интеллекта
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-gradient">
+            Портфолио
+          </span>
+
+          <span class="hero-title-outline">
+            AI-навыков
+          </span>
+        </h1>
+
+        <h2 class="hero-name">
+          Иванов Андрей Юрьевич
+        </h2>
+
+        <p class="hero-description">
+          Использую нейросети для
+          <strong>поиска информации</strong>,
+          повышения личной эффективности и
+          <strong>автоматизации рабочих процессов</strong>.
+        </p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb">
+          <div class="orb-center">
+            <span>AI</span>
+          </div>
+
+          <span class="floating-tag tag-one">
+            Автоматизация
+          </span>
+
+          <span class="floating-tag tag-two">
+            ChatGPT
+          </span>
+
+          <span class="floating-tag tag-three">
+            Эффективность
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <div class="section-heading">
+        <div class="section-number">01</div>
+
+        <div>
+          <div class="section-kicker">
+            Ключевые компетенции
+          </div>
+
+          <h2 class="section-title">
+            AI-навыки и практическое применение
+          </h2>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            🧠
+          </div>
+
+          <div class="skill-label">
+            Понимание технологий
+          </div>
+
+          <h3 class="skill-title">
+            Разбираюсь в принципах работы AI
+          </h3>
+
+          <p class="skill-text">
+            Различаю искусственный интеллект,
+            нейросети и ChatGPT. Умею объяснять
+            разницу между технологиями простым
+            и понятным языком.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            🔎
+          </div>
+
+          <div class="skill-label">
+            Быстрый поиск
+          </div>
+
+          <h3 class="skill-title">
+            Экономлю время на информации
+          </h3>
+
+          <p class="skill-text">
+            Использую чат-ботов вместо длительного
+            ручного поиска в Google, быстро получаю
+            структурированные ответы, сравнения
+            и рекомендации.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            ⚡
+          </div>
+
+          <div class="skill-label">
+            Личная эффективность
+          </div>
+
+          <h3 class="skill-title">
+            Решаю повседневные задачи
+          </h3>
+
+          <p class="skill-text">
+            Применяю нейросети для составления
+            диет, подбора тренировок, изучения
+            иностранных языков и создания
+            персональных планов развития.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div class="section-number">02</div>
+
+        <div>
+          <div class="section-kicker">
+            Практический результат
+          </div>
+
+          <h2 class="section-title">
+            Пример реализованного кейса
+          </h2>
+        </div>
+      </div>
+
+      <article class="case-study">
+        <div class="case-meta">
+          <div class="case-badge">
+            <span>●</span>
+            Отдел закупок
+          </div>
+
+          <h3 class="case-title">
+            Автоматизация подбора поставщиков
+          </h3>
+        </div>
+
+        <div class="case-content">
+          <p>
+            Оптимизировал рутинные задачи в отделе
+            закупок и автоматизировал первичный
+            подбор поставщиков с помощью ChatGPT.
+          </p>
+
+          <div class="case-points">
+            <div class="case-point">
+              <span class="case-point-mark">✓</span>
+
+              <span>
+                Ускорил поиск и первичную оценку
+                потенциальных поставщиков.
+              </span>
+            </div>
+
+            <div class="case-point">
+              <span class="case-point-mark">✓</span>
+
+              <span>
+                Структурировал критерии сравнения
+                коммерческих предложений.
+              </span>
+            </div>
+
+            <div class="case-point">
+              <span class="case-point-mark">✓</span>
+
+              <span>
+                Сократил количество повторяющихся
+                ручных операций.
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div class="section-number">03</div>
+
+        <div>
+          <div class="section-kicker">
+            Рабочий стек
+          </div>
+
+          <h2 class="section-title">
+            Инструменты и направления
+          </h2>
+        </div>
+      </div>
+
+      <div class="tools-panel">
+        <p class="tools-intro">
+          Использую AI-инструменты для анализа,
+          генерации идей, систематизации информации,
+          обучения и оптимизации рабочих процессов.
+        </p>
+
+        <div class="tools-grid">
+          <span class="tool-tag">ChatGPT</span>
+          <span class="tool-tag">AI-поиск</span>
+          <span class="tool-tag">Промпт-инжиниринг</span>
+          <span class="tool-tag">Анализ данных</span>
+          <span class="tool-tag">Автоматизация</span>
+          <span class="tool-tag">Подбор поставщиков</span>
+          <span class="tool-tag">Сравнение предложений</span>
+          <span class="tool-tag">Обучение языкам</span>
+          <span class="tool-tag">Персональные планы</span>
+          <span class="tool-tag">Структурирование информации</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="footer-accent">
+        Иванов Андрей Юрьевич
+      </span>
+
+      <span>
+        Портфолио AI-навыков
+      </span>
+    </footer>
+  </main>
+
+  <script>
+    /**
+     * Плавное появление блоков при прокрутке.
+     * Если IntersectionObserver не поддерживается,
+     * элементы отображаются сразу.
+     */
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.14,
+          rootMargin: "0px 0px -40px 0px"
+        }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+</body>
+</html>
